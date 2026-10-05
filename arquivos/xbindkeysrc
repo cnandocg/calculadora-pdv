@@ -1,0 +1,7 @@
+# Atalho global da calculadora do PDV.
+# Ctrl+C: a tecla Ctrl nao esta mapeada no Arius (e ignorada) e o C
+# fica preso aqui, entao nao chega ao PDV (C = Consulta Mercadoria).
+# Nao usar Shift: no Arius, Shift sozinho = TOTALIZA VENDA.
+
+"/opt/pdv-calculadora/abrir-calculadora.sh"
+    Control + c
