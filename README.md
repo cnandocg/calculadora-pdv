@@ -19,8 +19,8 @@ Com Ctrl+C o PDV ignora o Ctrl e o C é capturado pelo atalho antes de chegar ao
 ## Uso no caixa
 
 ```bash
-git clone https://github.com/<usuario>/pdv-calculadora.git
-cd pdv-calculadora
+git clone https://github.com/cnandocg/calculadora-pdv.git
+cd calculadora-pdv
 sudo ./pdv-calculadora.sh instalar
 ```
 
@@ -62,3 +62,7 @@ Tudo funciona **sem mouse** (os caixas não têm). Os atalhos aparecem no rodap�
 - Porcentagem de caixa: `200+10% = 220`, `200-10% = 180`, `200×10% = 20`.
 - Contas em decimal exato (`0,1+0,2 = 0,3`).
 - Teste rápido das contas: `python3 arquivos/calculadora.py --teste`
+
+## Créditos
+
+Desenvolvido por **Claudio Fernando**.
