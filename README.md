@@ -55,6 +55,27 @@ Os pacotes do apt (`xbindkeys`, `xdotool`) continuam instalados, mas parados, se
 sudo apt-get remove xbindkeys xdotool
 ```
 
+**Onde fica instalada:** o `instalar` copia tudo para `/opt/pdv-calculadora`, e é de lá que o atalho e a calculadora rodam:
+
+| Arquivo | Função |
+|---|---|
+| `/opt/pdv-calculadora/calculadora.py` | A calculadora |
+| `/opt/pdv-calculadora/abrir-calculadora.sh` | Abre/fecha a calculadora quando aperta Ctrl+C |
+| `/opt/pdv-calculadora/xbindkeysrc` | Configuração do atalho Ctrl+C |
+| `/opt/pdv-calculadora/pdv-calculadora.sh` | Cópia do script de comandos |
+| `/opt/pdv-calculadora/ativo` | Existe quando o atalho está ativado |
+
+Além disso, uma linha é colocada no `/pdv/inicia_pdv`, com backup em `/pdv/inicia_pdv.antes-calculadora`.
+
+**Posso apagar a pasta do clone?** Sim. Depois do `instalar`, a pasta `calculadora-pdv` não é mais usada e a calculadora continua funcionando:
+```bash
+rm -rf calculadora-pdv
+```
+Daí em diante, use os comandos pelo caminho completo, por exemplo `sudo /opt/pdv-calculadora/pdv-calculadora.sh status`.
+Só é preciso clonar de novo para **reinstalar ou atualizar** (`instalar`).
+
+**Atenção:** não apague a pasta `/opt/pdv-calculadora` na mão. Para remover, use o `desinstalar`, que também tira a linha do `inicia_pdv`.
+
 **Onde rodar:**
 - **Na pasta do git clone:** `cd calculadora-pdv` e depois `sudo ./pdv-calculadora.sh <opção>`. O `./` significa "o script desta pasta".
 - **De qualquer lugar**, mesmo se a pasta do clone foi apagada: `sudo /opt/pdv-calculadora/pdv-calculadora.sh <opção>`. A exceção é o `instalar`, que precisa rodar da pasta do clone, porque é de lá que ele copia os arquivos.
