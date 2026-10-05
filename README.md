@@ -33,15 +33,36 @@ cd calculadora-pdv
 sudo ./pdv-calculadora.sh instalar
 ```
 
+### Comandos
+
+O `pdv-calculadora.sh` é um script só, e a palavra depois dele diz o que ele deve fazer. É como escolher uma opção de um menu.
+
 | Comando | O que faz |
 |---|---|
-| `instalar` | Instala xbindkeys/xdotool/python3-gi, copia para `/opt/pdv-calculadora`, adiciona uma linha no `/pdv/inicia_pdv` (backup em `inicia_pdv.antes-calculadora`) e ativa |
-| `ativar` | Liga o atalho (na hora, se o PDV estiver aberto) |
-| `desativar` | Desliga o atalho e fecha a calculadora |
-| `status` | Mostra se está instalada/ativa |
-| `desinstalar` | Remove a linha do `inicia_pdv` e a pasta `/opt/pdv-calculadora` |
+| `sudo ./pdv-calculadora.sh instalar` | Instala tudo e já liga o atalho Ctrl+C |
+| `sudo ./pdv-calculadora.sh desativar` | Desliga o Ctrl+C e fecha a calculadora, mas deixa tudo instalado. Vale também depois de reiniciar |
+| `sudo ./pdv-calculadora.sh ativar` | Liga de novo o Ctrl+C |
+| `sudo ./pdv-calculadora.sh status` | Mostra se está instalada, ativada e rodando |
+| `sudo ./pdv-calculadora.sh desinstalar` | Remove tudo e deixa o caixa como era antes |
 
-Depois de instalado, os comandos também ficam em `/opt/pdv-calculadora/pdv-calculadora.sh`.
+O `desinstalar` faz três coisas:
+1. Desliga o atalho e fecha a calculadora, se estiver aberta.
+2. Tira a linha que foi colocada no `/pdv/inicia_pdv`.
+3. Apaga a pasta `/opt/pdv-calculadora`.
+
+Os pacotes do apt (`xbindkeys`, `xdotool`) continuam instalados, mas parados, sem efeito nenhum. Se quiser removê-los também:
+```bash
+sudo apt-get remove xbindkeys xdotool
+```
+
+**Onde rodar:**
+- **Na pasta do git clone:** `cd calculadora-pdv` e depois `sudo ./pdv-calculadora.sh <opção>`. O `./` significa "o script desta pasta".
+- **De qualquer lugar**, mesmo se a pasta do clone foi apagada: `sudo /opt/pdv-calculadora/pdv-calculadora.sh <opção>`. A exceção é o `instalar`, que precisa rodar da pasta do clone, porque é de lá que ele copia os arquivos.
+
+Se digitar sem nenhuma palavra, ou com uma palavra errada, o script só mostra as opções e não faz nada:
+```
+Uso: ./pdv-calculadora.sh {instalar|ativar|desativar|status|desinstalar}
+```
 
 ## Como funciona
 
