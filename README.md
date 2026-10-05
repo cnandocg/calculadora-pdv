@@ -18,6 +18,15 @@ Com Ctrl+C o PDV ignora o Ctrl e o C é capturado pelo atalho antes de chegar ao
 
 ## Uso no caixa
 
+O caixa não vem com o `git`, então antes é preciso atualizar a lista de pacotes e instalá-lo:
+
+```bash
+sudo apt-get update
+sudo apt install -y git
+```
+
+Depois clone e instale:
+
 ```bash
 git clone https://github.com/cnandocg/calculadora-pdv.git
 cd calculadora-pdv
